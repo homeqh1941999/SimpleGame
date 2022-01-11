@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     bool isDead;
     bool isAppear;
 
+    public static bool isShooting = false;
+
     private SpriteRenderer sr_RocketBody;
     private SpriteRenderer sr_Flame;
     private Color colorTrans;
@@ -45,12 +47,15 @@ public class Player : MonoBehaviour
 
     private void Movement()
     {
-        float hor = joystick.Horizontal;
-        float ver = joystick.Vertical;
-        Vector3 direction = new Vector3(hor, ver, 0).normalized;
-        transform.Translate(direction * 0.08f, Space.World);
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, minScreenBounds.x + 3.5f, maxScreenBounds.x - 3f),
-                Mathf.Clamp(transform.position.y, minScreenBounds.y + 0.5f, maxScreenBounds.y - 2), 0);
+        if (!isShooting)
+        {
+            float hor = joystick.Horizontal;
+            float ver = joystick.Vertical;
+            Vector3 direction = new Vector3(hor, ver, 0).normalized;
+            transform.Translate(direction * 0.08f, Space.World);
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, minScreenBounds.x + 3.5f, maxScreenBounds.x - 3f),
+                    Mathf.Clamp(transform.position.y, minScreenBounds.y + 0.5f, maxScreenBounds.y - 2), 0);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

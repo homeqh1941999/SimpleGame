@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 /// <summary>
 /// This script is about Game Play such as loading level, check if the game is end,...
@@ -15,17 +16,21 @@ public class GameManager : MonoBehaviour
     public GameObject go_GameOver;
     public GameObject go_GameUI;
     public GameObject go_GameComplete;
+    public GameObject go_GamePause;
 
     public GameObject go_LevelChangeBackground;
     public GameObject go_Timer_Manager;
 
-    public GameObject[] pf_LevelLoading;
+    public Button btnPause;
 
+    public GameObject[] pf_LevelLoading;
     private Player pf_Player;
 
     private float delayTime = 2f;
 
     bool isLevelLoaded;
+    bool isPaused = false;
+
     string filename;
     GameObject _currentLevel;
 
@@ -174,6 +179,22 @@ public class GameManager : MonoBehaviour
     public void SelectLevel()
     {
         SceneManager.LoadSceneAsync("LevelSelect");
+    }
+
+    public void PauseGame()
+    {
+        isPaused = !isPaused;
+        if (isPaused)
+        {
+            Time.timeScale = 0;
+            go_GamePause.SetActive(true);
+        }
+        else
+        {
+            Time.timeScale = 1;
+            go_GamePause.SetActive(false);
+        }
+        btnPause.gameObject.SetActive(!isPaused);
     }
 
     public void MainMenu()

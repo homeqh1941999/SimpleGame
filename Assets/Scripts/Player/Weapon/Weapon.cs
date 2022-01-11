@@ -22,6 +22,8 @@ public class Weapon : MonoBehaviour
     public Transform fireStartPoint;
     public GameObject bulletPrefabs;
     public GameObject _laser;
+    public GameObject startLaserVFX;
+    public GameObject endLaserVFX;
 
     [SerializeField] private AudioClip adc;
     [SerializeField] private float volume = 0.3f;
@@ -32,26 +34,32 @@ public class Weapon : MonoBehaviour
     private Button btn;
 
     public static float damage;
-
     public static int checkWeapon;
 
     private Vector3 fireStartPointModify;
     private Vector3 fireEndPointModify;
 
     private List<WeaponList> weaponList;
+    private List<ParticleSystem> particles = new List<ParticleSystem>();
 
+    float delayTimerForSpammingShootingButton = .2f;
+    bool isLaserOn = false;
+    
     Transform m_transform;
     private void Awake()
     {
         ads = GetComponent<AudioSource>();      
-        btn = FindObjectOfType<Button>();
+        btn = GameObject.FindGameObjectWithTag("Shoot").GetComponent<Button>();
         m_transform = GetComponent<Transform>();
         btn.onClick.AddListener(CheckWeapon);
         lrend = _laser.GetComponent<LineRenderer>();
-        lrend.enabled = !lrend.enabled;
-        SetUpWeapon();     
+        lrend.enabled = !lrend.enabled;          
     }
-
+    private void Start()
+    {
+        SetUpWeapon();
+        VFXLaserList();
+    }
     // Normal Bullets Weapons = 0;
     // Three Bullets Weapons = 1;
     // ...
@@ -62,7 +70,7 @@ public class Weapon : MonoBehaviour
         weaponList.Add(new WeaponList("ThreeBulletsWeapon", 2));
         weaponList.Add(new WeaponList("LazerWeapon", 3));
         weaponList.Add(new WeaponList("OneBulletsEnhancedWeapon", 4));
-        checkWeapon = 0;
+        checkWeapon = 3;
     }
     public void BulletsCreate(float bullets)
     {     
@@ -150,16 +158,15 @@ public class Weapon : MonoBehaviour
     private void LaserWeapon()
     {
         StartCoroutine(ShootLaser(0.2f));
-        damage = 100;
+        damage = 1;
     }
     IEnumerator ShootLaser(float delayTime)
     {
+        Player.isShooting = !Player.isShooting;
         lrend.enabled = !lrend.enabled;
         fireStartPointModify = new Vector3(fireStartPoint.position.x, fireStartPoint.position.y, fireStartPoint.position.z);
         fireEndPointModify = new Vector3(fireEndPoint.position.x, fireEndPoint.position.y, fireEndPoint.position.z);
-
         RaycastHit2D hit = Physics2D.Raycast(fireStartPointModify, Vector3.up, distanceRay, LayerMask.GetMask("Enemy"));
-        Debug.DrawRay(fireStartPointModify, Vector3.up, Color.yellow);
 
         if (hit.collider != null)
         {
@@ -172,18 +179,70 @@ public class Weapon : MonoBehaviour
                     enemy.TakeDamage(damage);
                 }
             }
-            Draw2DRay(fireStartPointModify, fireEndPointModify);
+            DrawLaser(fireStartPointModify, hit.point);
         }
         else
         {
-            Draw2DRay(fireStartPointModify, fireEndPointModify);
+            DrawLaser(fireStartPointModify, fireEndPointModify);
         }
+        btn.enabled = false;
         yield return new WaitForSeconds(delayTime);
         lrend.enabled = !lrend.enabled;
+        isLaserOn = false;
+        LaserState(isLaserOn);
+        yield return new WaitForSeconds(delayTime + delayTimerForSpammingShootingButton);
+        Player.isShooting = !Player.isShooting;
+        btn.enabled = true;
+    }
+
+    private void VFXLaserList()
+    {
+        for (int i=0; i < startLaserVFX.transform.childCount; i++)
+        {
+            var ps = startLaserVFX.transform.GetChild(i).GetComponent<ParticleSystem>();
+            if(ps != null)
+            {
+                particles.Add(ps);
+            }
+        }
+        for (int i = 0; i < endLaserVFX.transform.childCount; i++)
+        {
+            var ps = endLaserVFX.transform.GetChild(i).GetComponent<ParticleSystem>();
+            if (ps != null)
+            {
+                particles.Add(ps);
+            }
+        }
+        LaserState(isLaserOn);
     }
     private void Draw2DRay(Vector3 startPos, Vector3 endPos)
     {       
         lrend.SetPosition(0, startPos);
         lrend.SetPosition(1, endPos);
+    }
+    private void DrawLaser(Vector3 fireStartPoint, Vector3 fireEndPoint)
+    {
+        isLaserOn = true;
+        LaserState(isLaserOn);
+        startLaserVFX.transform.position = fireStartPoint;
+        endLaserVFX.transform.position = fireEndPoint;
+        Draw2DRay(fireStartPoint, fireEndPoint);        
+    }
+    private void LaserState(bool isLaserOn)
+    {
+        if (isLaserOn)
+        {
+            for (int i = 0; i < particles.Count; i++)
+            {
+                particles[i].Play();
+            }
+        }
+        else
+        {
+            for (int i = 0; i < particles.Count; i++)
+            {
+                particles[i].Stop();
+            }
+        }
     }
 }

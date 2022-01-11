@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4488625760020990996}
   m_Layer: 9
-  m_Name: StartFirePOint
+  m_Name: StartFirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2714462608315380114}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.15, y: 2.04, z: 0}
+  m_LocalPosition: {x: 0.16, y: 1.936, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4478046669154275568}
@@ -311,9 +311,59 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4478046669154275568}
     m_Modifications:
+    - target: {fileID: 516153855127590972, guid: ad405cda23821344dbe5c42d17b21d52,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 516153855127590972, guid: ad405cda23821344dbe5c42d17b21d52,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1635616716760229950, guid: ad405cda23821344dbe5c42d17b21d52,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1635616716760229950, guid: ad405cda23821344dbe5c42d17b21d52,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2124117698456353277, guid: ad405cda23821344dbe5c42d17b21d52,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2124117698456353277, guid: ad405cda23821344dbe5c42d17b21d52,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.16470623
+      objectReference: {fileID: 0}
+    - target: {fileID: 2124117698456353277, guid: ad405cda23821344dbe5c42d17b21d52,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268207339710675659, guid: ad405cda23821344dbe5c42d17b21d52,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268207339710675659, guid: ad405cda23821344dbe5c42d17b21d52,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3750978323747819456, guid: ad405cda23821344dbe5c42d17b21d52,
         type: 3}
       propertyPath: laserPoint
+      value: 
+      objectReference: {fileID: 2921140739635724008}
+    - target: {fileID: 3750978323747819456, guid: ad405cda23821344dbe5c42d17b21d52,
+        type: 3}
+      propertyPath: fireEndPoint
       value: 
       objectReference: {fileID: 2921140739635724008}
     - target: {fileID: 3750978323747819456, guid: ad405cda23821344dbe5c42d17b21d52,
@@ -395,6 +445,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 7389237800829829471, guid: ad405cda23821344dbe5c42d17b21d52,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7389237800829829471, guid: ad405cda23821344dbe5c42d17b21d52,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324562379857793910, guid: ad405cda23821344dbe5c42d17b21d52,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324562379857793910, guid: ad405cda23821344dbe5c42d17b21d52,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8935418911272459199, guid: ad405cda23821344dbe5c42d17b21d52,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8935418911272459199, guid: ad405cda23821344dbe5c42d17b21d52,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9057811251824643789, guid: ad405cda23821344dbe5c42d17b21d52,
+        type: 3}
+      propertyPath: ShapeModule.angle
+      value: 87
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad405cda23821344dbe5c42d17b21d52, type: 3}

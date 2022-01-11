@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3051210237887860802}
   - component: {fileID: -4283990185497058315}
   - component: {fileID: -105802974108272142}
-  - component: {fileID: 1201859838006687821}
   - component: {fileID: 5153284473417375213}
+  - component: {fileID: 7954882946897848528}
   m_Layer: 10
   m_Name: Enemy1
   m_TagString: Enemy
@@ -127,32 +127,6 @@ MonoBehaviour:
   rend: {fileID: 3051210237887860802}
   explosion: {fileID: 8007828320160625721, guid: 2633cf19cfb9a714897ef1dcd17a208e,
     type: 3}
---- !u!61 &1201859838006687821
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3715134281505703917}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.84, y: 2.65}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!82 &5153284473417375213
 AudioSource:
   m_ObjectHideFlags: 0
@@ -249,3 +223,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!58 &7954882946897848528
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3715134281505703917}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0217293, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.1499286
