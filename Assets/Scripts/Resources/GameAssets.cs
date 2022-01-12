@@ -37,8 +37,5 @@ public class GameAssets : MonoBehaviour
 
     public Transform pointPopup;
     public Transform levelTMP;
-    public Transform scoreTMP;
-    public Transform livesTMP;
-    public Transform timerTMP;
     public GameObject Player;
 }

@@ -4,21 +4,11 @@ using UnityEngine;
 using TMPro;
 
 public class Score : MonoBehaviour
-{
-    public static Score Create(Vector3 position)
-    {
-        Transform scoreTransform = Instantiate(GameAssets.i.scoreTMP, position, Quaternion.identity);
-
-        Score score = scoreTransform.GetComponent<Score>();
-
-        return score;
-    }
-
-    private TextMeshPro textMesh;
-
+{ 
+    private TextMeshProUGUI textMesh;
     private void Start()
     {
-        textMesh = transform.GetComponent<TextMeshPro>();
+        textMesh = transform.GetComponent<TextMeshProUGUI>();
     }
 
     private void Update()

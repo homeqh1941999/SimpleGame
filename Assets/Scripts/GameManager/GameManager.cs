@@ -10,17 +10,12 @@ using UnityEngine.UI;
 /// 
 public class GameManager : MonoBehaviour
 {
-    public GameObject go_Score_Manager;
-    public GameObject go_Lives_Manager;
-
     public GameObject go_GameOver;
     public GameObject go_GameUI;
     public GameObject go_GameComplete;
     public GameObject go_GamePause;
 
     public GameObject go_LevelChangeBackground;
-    public GameObject go_Timer_Manager;
-
     public Button btnPause;
 
     public GameObject[] pf_LevelLoading;
@@ -51,11 +46,6 @@ public class GameManager : MonoBehaviour
         {
             isLevelLoaded = false;
         }
-
-        // Create UI
-        Score.Create(go_Score_Manager.transform.position);
-        Lives.Create(go_Lives_Manager.transform.position);
-        Timer.Create(go_Timer_Manager.transform.position);
 
         // Show Game Play panel
         ShowGamePlay();

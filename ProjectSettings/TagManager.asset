@@ -10,6 +10,7 @@ TagManager:
   - LazerWeapon
   - OneBulletsEnhancedWeapon
   - Shoot
+  - Canvas
   layers:
   - Default
   - TransparentFX
