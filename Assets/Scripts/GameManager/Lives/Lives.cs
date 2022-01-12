@@ -5,20 +5,10 @@ using UnityEngine;
 
 public class Lives : MonoBehaviour
 {
-    public static Lives Create(Vector3 position)
-    {
-        Transform livesTransform = Instantiate(GameAssets.i.livesTMP, position, Quaternion.identity);
-
-        Lives lives = livesTransform.GetComponent<Lives>();
-
-        return lives;
-    }
-
-    private TextMeshPro textMesh;
-
+    private TextMeshProUGUI textMesh;
     private void Start()
     {
-        textMesh = transform.GetComponent<TextMeshPro>();
+        textMesh = transform.GetComponent<TextMeshProUGUI>();
     }
 
     private void Update()

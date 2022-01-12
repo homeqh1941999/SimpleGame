@@ -5,22 +5,12 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    public static Timer Create(Vector3 position)
-    {
-        Transform timerTransform = Instantiate(GameAssets.i.timerTMP, position, Quaternion.identity);
-
-        Timer timer = timerTransform.GetComponent<Timer>();
-
-        return timer;
-    }
-
-    private TextMeshPro textMesh;
-    
+    private TextMeshProUGUI textMesh;  
     public float _timer;
 
     private void Start()
     {
-        textMesh = transform.GetComponent<TextMeshPro>();
+        textMesh = transform.GetComponent<TextMeshProUGUI>();
     }
 
     private void Update()
