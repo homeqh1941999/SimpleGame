@@ -168,6 +168,7 @@ public class GameManager : MonoBehaviour
 
     public void SelectLevel()
     {
+        PauseGame();
         SceneManager.LoadSceneAsync("LevelSelect");
     }
 
@@ -189,6 +190,7 @@ public class GameManager : MonoBehaviour
 
     public void MainMenu()
     {
+        PauseGame();
         SceneManager.LoadSceneAsync("MainMenu");
     }
 
